@@ -7,7 +7,7 @@ import './Showfilms.css'
 
 export default class Showfilms extends Component {
     constructor (props) {
-        super(props)
+        super(props);
         this.state = {
             results: []
         }

@@ -14,32 +14,31 @@ export default class SearchForm extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({value: e.target.value})
+        this.setState({ value: e.target.value })
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({fireRedirect: true})
+        this.setState({ fireRedirect: true })
     };
 
     render () {
-        const {fireRedirect, value: query} = this.state
-        return(
+        const { fireRedirect, value: query } = this.state;
+        return (
             <Row>
                 <Col span={14} offset={5}>
                     <form onSubmit={this.handleSubmit}>
                         <Input className='input'
                                placeholder='Search a film...'
-                               onChange={this.handleSubmit}/>
+                               onChange={this.handleChange} />
                         <Button type="primary"
                                 icon="search"
-                                onClick={this.handleSubmit}> Search
-                        </Button>
+                                onClick={this.handleSubmit}>Search</Button>
                     </form>
                 </Col>
-                    {
-                fireRedirect && query &&
-                    <Redirect to={`/search/${query}`} push/>
+                {
+                    fireRedirect && query &&
+                    <Redirect to={`/search/${query}`} push />
                 }
             </Row>
         )
